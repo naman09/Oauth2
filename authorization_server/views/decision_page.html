@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorize</title>
+</head>
+<body>
+    <div>
+        <h1>Allow client to access resource on your behalf ?</h1>
+        <button onClick="buttonHandler('yes')()">YES</button>
+        <button onClick="buttonHandler('no')()">NO</button>
+    </div>
+</body>
+</html>
+
+
+<script>
+    function buttonHandler(type) {
+        if (type === "yes") return yesHandler;
+        else return noHandler;
+    }
+    async function yesHandler() {
+        console.log("yes");
+        window.location.href = "http://localhost:8080/decision/YES";
+    }
+
+    function noHandler() {
+        console.log("no");
+        window.location.href = "http://localhost:8080/decision/NO";
+    }
+</script>
